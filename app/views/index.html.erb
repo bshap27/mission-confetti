@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<a href="#">Log In</a>
+
+<form action='/results' method="get">
+	<p>
+	<label>Search by keyword:</label>
+	  <input type="text" name="searchkeyword"/>
+	</p>
+
+	<p>
+		<input type="submit"></input>
+	</p>
+
+</form>
+
+<p>Or, find podcasts by common categories:</p>
+
+<% @topics.each do |topic| %>
+	<a href="/topics/<%= topic.name %>"><%= topic.name %></a>
+<% end %>
+
+</body>
+</html>

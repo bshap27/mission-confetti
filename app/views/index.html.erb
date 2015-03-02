@@ -2,7 +2,21 @@
 <html>
 <body>
 
-<a href="#">Log In</a>
+<h3>Log In</h3>
+
+<form action='/login' method="post">
+	<p>
+	<label for="username">Username</label>
+	  <input type="text" name="username" id="username"/>
+	</p>
+	<p>
+	<label for="password">Password</label>
+	  <input type="text" name="password" id="password"/>
+	</p>
+	<p>
+		<input type="submit"></input>
+	</p>
+</form>
 
 <form action='/results' method="get">
 	<p>

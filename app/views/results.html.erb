@@ -6,5 +6,10 @@
 
 <p>On this page, print all search results from @keyword</p>
 
+<<-SQL
+SELECT * FROM podcasts WHERE <title contains keyword> OR <description contains keyword>.... etc.
+SQL
+<% DB.execute(sql, ?, ?) %>
+
 </body>
 </html>

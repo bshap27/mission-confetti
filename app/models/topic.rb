@@ -1,10 +1,10 @@
-class Topic
-	attr_accessor :topic
+# class Topic
+# 	attr_accessor :topic
 
-	@@all = []
+# 	@@all = []
 
-	def initialize
-		scraper = Scraper.new
-	end
+# 	def initialize
+# 		scraper = Scraper.new
+# 	end
 
-end
+# end

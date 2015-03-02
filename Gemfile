@@ -11,6 +11,8 @@ gem 'sqlite3'
 gem 'shotgun'
 # gem 'tux'
 gem 'pry'
+gem 'nokogiri'
+gem 'database_cleaner', git: 'https://github.com/bmabey/database_cleaner.git'
 
 # group :test do
 #   gem 'rspec'

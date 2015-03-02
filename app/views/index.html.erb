@@ -17,13 +17,10 @@
 </form>
 
 <p>Or, find podcasts by common categories:</p>
-<form action='/:category' method="get">
-	<input type="radio" name="category" value="art">Art<br>
-	<input type="radio" name="category" value="music">Music<br>
-	<input type="radio" name="category" value="sports">Sports<br>
-	<input type="radio" name="category" value="tech">Tech
-	<p><input type="submit"></input></p>
-</form>
+
+<% @topics.each do |topic| %>
+	<a href="/topics/<%= topic.name %>"><%= topic.name %></a>
+<% end %>
 
 </body>
 </html>

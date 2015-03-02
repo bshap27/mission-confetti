@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<a href="#">Log In</a>
+
+<form action='/results' method="get">
+	<p>
+	<label>Search by keyword:</label>
+	  <input type="text" name="searchkeyword"/>
+	</p>
+
+	<p>
+		<input type="submit"></input>
+	</p>
+
+</form>
+
+<p>Or, find podcasts by common categories:</p>
+<form action='/:category' method="get">
+	<input type="radio" name="category" value="art">Art<br>
+	<input type="radio" name="category" value="music">Music<br>
+	<input type="radio" name="category" value="sports">Sports<br>
+	<input type="radio" name="category" value="tech">Tech
+	<p><input type="submit"></input></p>
+</form>
+
+</body>
+</html>

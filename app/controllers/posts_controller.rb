@@ -1,13 +1,13 @@
 class PostsController < ApplicationController
 
-  get '/' do # INDEX
+  get '/posts' do # INDEX
     @posts = Post.all
 
     erb :"posts/index.html"
   end
 
   get '/posts/new' do # NEW
-    @authors = Author.all
+    @users = User.all
 
     erb :"posts/new.html"
   end
@@ -26,28 +26,13 @@ class PostsController < ApplicationController
 
 
   post '/posts' do # CREATE
-    @post = Post.new(params[:post])
-    # <input type="text" name="post[author_name]">
-    @post.author_name = params[:post][:author_name]
-
-
-    # @post.author_name = params[:author_name]
-    # @post.title = params[:title]
-    # @post.content = params[:content]
-    # # @post.author = Author.find(params[:author_id])
-    # @post.author_id = params[:author_id]
-
-    @post.save
-
+    @post = Post.create(params[:post])
+    binding.pry
     redirect "/posts/#{@post.id}"
   end  
 
   patch "/posts/:id" do # UPDATE
     @post = Post.find(params[:id])
-
-    # @post.title = params[:post][:title]
-    # @post.content = params[:post][:content]
-
     @post.update(params[:post])
 
     redirect "/posts/#{@post.id}"

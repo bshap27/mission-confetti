@@ -1,7 +1,7 @@
 <h1>Edit <%= @post.title %></h1>
 
-<form action="/posts/<%= @post.id %>" method="POST">
-  <input type="hidden" name="_method" value="PATCH">
+<form action="/posts/<%= @post.id %>" method="post">
+  <input type="hidden" name="_method" value="patch">
 
   <p>
     <label for="post_title">Title</label></br>
@@ -16,11 +16,6 @@
   </p>
 
   <p>
-    <label>Author</label></br>
-
-    
-  </p>
-  <p>
-    <input type="submit" id="submit">
+    <input type="submit">
   </p>
 </form> 

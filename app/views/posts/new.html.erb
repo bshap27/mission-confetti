@@ -17,14 +17,9 @@
   <p>
     <label>Author</label></br>
 
-    <select name="post[author_id]">
-      <option value=""></option>
-      <% @authors.each do |author| %>
-      <option value="<%= author.id %>"><%= author.name %></option>
-      <% end %>
-    </select> or create a new one: <input type="text" name="post[author_name]">
-    
+    <input type="text" name="post[user_id]">
   </p>
+  
   <p>
     <input type="submit" id="submit">
   </p>

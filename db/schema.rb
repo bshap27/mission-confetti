@@ -11,12 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150302225133) do
+ActiveRecord::Schema.define(version: 20150303000114) do
+
+  create_table "post_tags", force: :cascade do |t|
+    t.integer "post_id"
+    t.integer "tag_id"
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.string  "title"
+    t.string  "content"
+    t.integer "user_id"
+  end
 
   create_table "subtopics", force: :cascade do |t|
     t.string  "name"
     t.integer "topic_id"
     t.string  "url"
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "name"
   end
 
   create_table "topics", force: :cascade do |t|

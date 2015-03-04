@@ -38,6 +38,7 @@
 
     <div class="jumbotron">
         <h5>Or, find podcasts by common categories:</h5>
+
         <% @topics.each do |topic| %>
         <a href="/topics/<%= topic.name %>"><br><%= topic.name %></a>
       <% end %>

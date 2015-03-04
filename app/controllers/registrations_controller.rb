@@ -1,8 +1,13 @@
 class RegistrationsController < ApplicationController
 
   post "/login" do
-    @user = User.find_by(:username => params[:username])
-    session[:user_id] = @user.id
+    begin
+      @valid_user = true
+      @user = User.find_by(:username => params[:username])
+      session[:user_id] = @user.id
+    rescue
+      @valid_user = false
+    end
     redirect '/'
   end
 

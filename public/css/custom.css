@@ -2,3 +2,15 @@ a {
 color: #3300FF;
 text-decoration: none;
 }
+
+.test {
+	display: inline-block;
+	vertical-align: middle;
+	line-height: 1.42857143;
+	padding: 8px 12px;
+	margin: 0;
+}
+
+.navbar-form .custom-form {
+	width: 300px;
+}

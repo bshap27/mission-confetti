@@ -12,12 +12,14 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/' do
+    # binding.pry
     @topics = Topic.all
     erb :'index.html'
   end
 
   get '/results' do
     @keyword = params[:searchkeyword]
+    @podcasts = Podcast.all
     erb :'results.html'
   end
 

@@ -2,9 +2,12 @@
 <html>
 <body>
 
-<%= @keyword %>
+<p>You searched for: <%= @keyword %></p>
 
 <p>On this page, print all search results from @keyword</p>
+
+<% @podcasts.each do |podcast| %>
+<% end %>
 
 </body>
 </html>

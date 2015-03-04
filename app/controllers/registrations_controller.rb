@@ -1,23 +1,53 @@
 class RegistrationsController < ApplicationController
 
-	post '/new' do
-		@name = params[:name]
-		@email = params[:email]
-		erb :"new_user"
+	set :sessions => true
+
+	# register do
+ #    def auth (type)
+ #      condition do
+ #        redirect "/newuser" unless send("is_#{type}?")
+ #      end
+ #    end
+ #  end
+
+ #  helpers do
+ #    def is_user?
+ #      @user != nil
+ #    end
+ #  end
+
+ #  before do
+ #    @user = User.get(session[:user_id])
+ #  end
+
+  # get "/protected", :auth => :user do
+  #   "Hello, #{@user.first_name}."
+  # end
+
+  post "/login" do
+    # session[:user_id] = User.authenticate(params[:user]).id
+    # @user = User.find_by(:username => params[:user][:username])
+    erb :"registrations/login.html"
+  end
+
+ #  get "/logout" do
+ #    session[:user_id] = nil
+ #  end
+
+	######
+
+	post '/newuser' do
+		@user = User.create(params[:user])
+		erb :"registrations/new_user_show.html"
 	end
 
-	get '/new' do
-		throw Unauthorized unless user_registered?
-		erb :"new_user"
+	get '/newuser' do
+		# throw Unauthorized unless user_registered?
+		erb :"registrations/new_user.html"
 	end
 
-	get '/new' do
-		throw Unauthorized unless user_registered?
-		erb :"login"
-	end
-
-	def user_registered?
-		session[:registered]
-	end 	
+	# def user_registered?
+	# 	session[:registered]
+	# end 	
 
 end

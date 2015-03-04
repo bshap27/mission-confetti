@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150303000114) do
+ActiveRecord::Schema.define(version: 20150304205618) do
+
+  create_table "podcasts", force: :cascade do |t|
+    t.string  "title"
+    t.integer "identifier"
+    t.string  "image_url"
+    t.string  "feed_url"
+  end
 
   create_table "post_tags", force: :cascade do |t|
     t.integer "post_id"

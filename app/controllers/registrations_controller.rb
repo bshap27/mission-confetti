@@ -11,6 +11,11 @@ class RegistrationsController < ApplicationController
 		erb :"new_user"
 	end
 
+	get '/new' do
+		throw Unauthorized unless user_registered?
+		erb :"login"
+	end
+
 	def user_registered?
 		session[:registered]
 	end 	

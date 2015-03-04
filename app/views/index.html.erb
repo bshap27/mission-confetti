@@ -17,15 +17,27 @@
           </form>      
       </ul>
     <div>
+
+    <% if !user_logged_in? %>
       <ul class="nav navbar-nav navbar-right">
           <form action='/login' method="post">
             <label for="username">Username</label>
               <input type="text" name="username" id="username"/>
             <label for="password">Password</label>
-              <input type="text" name="password" id="password"/>
+              <input type="password" name="password" id="password"/>
               <input type="submit"></input>
           </form>
       </ul>
+    <% else %>
+      <ul class="nav navbar-nav navbar-right">
+      <p> Hello, <%= current_user.name %>!</p>
+          <form action='/logout' method="post">
+            <input type="submit" value="Log Out"></input>
+          </form>
+      </ul>
+    <% end %>
+
+
     </div>
   </div>
 </div>
@@ -43,8 +55,3 @@
         <a href="/topics/<%= topic.name %>"><br><%= topic.name %></a>
       <% end %>
     </div>
-
-
-
-			
-

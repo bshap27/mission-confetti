@@ -2,7 +2,7 @@ class PostsController < ApplicationController
 
   get '/posts' do # INDEX
     @posts = Post.all
-
+    # binding.pry
     erb :"posts/index.html"
   end
 
@@ -27,7 +27,7 @@ class PostsController < ApplicationController
 
   post '/posts' do # CREATE
     @post = Post.create(params[:post])
-    binding.pry
+    # binding.pry
     redirect "/posts/#{@post.id}"
   end  
 

@@ -34,6 +34,7 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
+    prybaby (0.0.2.2)
     rack (1.6.0)
     rack-protection (1.5.3)
       rack
@@ -63,6 +64,7 @@ DEPENDENCIES
   database_cleaner!
   nokogiri
   pry
+  prybaby
   rake
   require_all
   shotgun

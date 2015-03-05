@@ -59,8 +59,6 @@
     <div class="jumbotron">
         <h5>Or, find podcasts by common categories:</h5>
 
-        ######### FIND A WAY TO CLICK THROUGH TOPICS DIRECTLY TO SEARCH RESULTS PAGE. thoughts: use sessions, or find a way to get the topic.name into params. ######
-
         <% @topics.each do |topic| %>
         <a href="/topics/<%= topic.name %>"><br><%= topic.name %></a>
       <% end %>

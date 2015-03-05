@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150305190538) do
+ActiveRecord::Schema.define(version: 20150305204908) do
 
   create_table "podcasts", force: :cascade do |t|
     t.string  "title"
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 20150305190538) do
     t.string  "title"
     t.string  "content"
     t.integer "user_id"
+    t.integer "podcast_id"
   end
 
   create_table "subtopics", force: :cascade do |t|

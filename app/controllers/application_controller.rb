@@ -19,7 +19,6 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/results' do
-    # binding.pry
     Podcast.delete_all
     @keyword = params[:searchkeyword]
     Api.new(@keyword).load
@@ -28,8 +27,9 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/topics/:topic' do
+    # binding.pry
     @topic = Topic.find_by(name: params[:topic])
-    erb :'topic.html'
+    erb :'search/topic.html'
   end
 
 end

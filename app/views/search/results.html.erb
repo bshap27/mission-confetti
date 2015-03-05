@@ -1,13 +1,8 @@
-<!DOCTYPE html>
-<html>
-<body>
-
 <p>You searched for: <%= @keyword %></p>
 
-<p>On this page, print all search results from @keyword</p>
-
 <% @podcasts.each do |podcast| %>
+	<ul>
+		<li><a href="<%= podcast.feed_url %>"><%= podcast.title %></a></li>
+		<img width='150' src="<%= podcast.image_url %>">
+	</ul>
 <% end %>
-
-</body>
-</html>

@@ -1,5 +1,7 @@
 require 'pry'
 require 'json'
+require 'open-uri'
+
 class Api
 
   attr_accessor :search_hash, :url
@@ -11,23 +13,21 @@ class Api
   end
 
   def get_json
-    binding.pry
   	@search_hash = JSON.load(open(@url))
   end
 
   def load
-    binding.pry
     self.get_json
-    @search_hash[:podcasts].each do |podcast|
-      podcast = Podcast.new
-      podcast.title = podcast[:title]
-      binding.pry
-        podcast.identifier = podcast[:podcast_id]
-      podcast.image_url = podcast[:image_url]
-      podcast.feed_url = podcast[:feed_url]
+    @search_hash["podcasts"].each do |podcast|
+      # binding.pry
+      p = Podcast.new
+      p.title = podcast["title"]
+      p.identifier = podcast["podcast_id"]
+      p.image_url = podcast["image_url"]
+      p.feed_url = podcast["feed_url"]
+      p.save
     end
   end
  
 end
-binding.pry
-
+# binding.pry

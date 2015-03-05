@@ -16,12 +16,14 @@ class ApplicationController < Sinatra::Base
     erb :'index.html'
   end
 
-  # get '/results' do
-  #   @keyword = params[:searchkeyword]
-  #   Api.new(@keyword).load
-  #   @podcasts = Podcast.all
-  #   erb :'results.html'
-  # end
+  get '/results' do
+    # binding.pry
+    Podcast.delete_all
+    @keyword = params[:searchkeyword]
+    Api.new(@keyword).load
+    @podcasts = Podcast.all
+    erb :'/search/results.html'
+  end
 
   get '/topics/:topic' do
     @topic = Topic.find_by(name: params[:topic])

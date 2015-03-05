@@ -1,7 +1,0 @@
-<p>IS THIS WORKING?</p>
-<p>This page is for the topic <%= @topic.name %></p>
-
-<p>Subtopics include:</p>
-<% @topic.subtopics.each do |subtopic| %>
-<li><a href="<%= subtopic.url %>"><%= subtopic.name %></a></li>
-<% end %>

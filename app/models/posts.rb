@@ -1,7 +1,6 @@
 class Post < ActiveRecord::Base
   belongs_to :user
-  has_many :tags, through: :post_tags
-  has_many :post_tags
+  belongs_to :podcast
 
   def username=(name)
     self.user = User.find_or_create_by(:name => name)

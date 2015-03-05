@@ -11,13 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150304205618) do
+ActiveRecord::Schema.define(version: 20150305190538) do
 
   create_table "podcasts", force: :cascade do |t|
     t.string  "title"
     t.integer "identifier"
     t.string  "image_url"
     t.string  "feed_url"
+  end
+
+  create_table "podcasts_topics", force: :cascade do |t|
+    t.integer "podcast_id"
+    t.integer "topic_id"
   end
 
   create_table "post_tags", force: :cascade do |t|
@@ -44,6 +49,11 @@ ActiveRecord::Schema.define(version: 20150304205618) do
   create_table "topics", force: :cascade do |t|
     t.string "name"
     t.string "url"
+  end
+
+  create_table "user_podcasts", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "podcast_id"
   end
 
   create_table "users", force: :cascade do |t|

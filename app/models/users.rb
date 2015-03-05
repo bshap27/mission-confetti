@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
 
-  has_many :posts
+  has_many :user_podcasts
+  has_many :podcasts, through: :user_podcasts
 
   def name
     @name = "#{first_name} #{last_name}"

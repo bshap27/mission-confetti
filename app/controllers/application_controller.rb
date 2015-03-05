@@ -13,6 +13,7 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/' do
+    # binding.pry
     @topics = Topic.all
     erb :'index.html'
   end

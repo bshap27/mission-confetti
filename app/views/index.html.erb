@@ -38,7 +38,9 @@
 
       <ul class="nav navbar-nav navbar-right">
           <form action='/logout' method="post">
-          <p class='test'>Hello, <%= current_user.username %>!
+          <% if current_user %>
+            <p class='test'>Hello, <%= current_user.username %>!
+          <% end %>
             <input type="submit" value="Log Out"></input></p>
           </form>
       </ul>
@@ -60,6 +62,6 @@
         <h5>Or, find podcasts by common categories:</h5>
 
         <% @topics.each do |topic| %>
-        <a href="/topics/<%= topic.name %>"><br><%= topic.name %></a>
+          <a href="/topics/<%= topic.name %>"><br><%= topic.name %></a>
       <% end %>
     </div>

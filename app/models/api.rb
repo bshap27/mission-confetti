@@ -19,12 +19,15 @@ class Api
   def load
     self.get_json
     @search_hash["podcasts"].each do |podcast|
-      p = Podcast.new
-      p.title = podcast["title"]
-      p.identifier = podcast["podcast_id"]
-      p.image_url = podcast["image_url"]
-      p.feed_url = podcast["feed_url"]
-      p.save
+      p = Podcast.find_or_create_by(title: podcast["title"], identifier: podcast["podcast_id"], image_url: podcast["image_url"], feed_url: podcast["feed_url"])
+
+
+      # p = Podcast.new
+      # p.title = podcast["title"]
+      # p.identifier = podcast["podcast_id"]
+      # p.image_url = podcast["image_url"]
+      # p.feed_url = podcast["feed_url"]
+      # p.save
       t = Topic.find_by(:name => @topic.capitalize)
       if t
         PodcastsTopic.create(:podcast_id => p.id, :topic_id => t.id)

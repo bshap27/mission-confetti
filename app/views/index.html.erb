@@ -58,10 +58,14 @@
   <small>Someone <cite title="Source Title">Source Title</cite></small>
 </blockquote>
 
-    <div class="jumbotron">
-        <h5>Or, find podcasts by common categories:</h5>
+<div class="jumbotron">
+    <h5>Or, find podcasts by common categories:</h5>
+    <ul>
+    <% @categories_array.each do |category| %>
+      <li><a href="/results?searchkeyword=<%= "#{category}" %>"><%= category %></a></li>
+    <% end %>
+    </ul>
+</div>
 
-        <% @topics.each do |topic| %>
-          <a href="/topics/<%= topic.name %>"><br><%= topic.name %></a>
-      <% end %>
-    </div>
+
+

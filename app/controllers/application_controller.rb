@@ -13,23 +13,23 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/' do
-    # binding.pry
     @topics = Topic.all
+    @categories_array = ["Arts", "Business", "Comedy", "Education", "Games & Hobbies", "Government & Organizations", "Health", "Kids & Family", "Music", "News & Politics", "Religion & Spirituality", "Science & Medicine", "Society & Culture", "Sports & Recreation", "TV & Film", "Technology"]
     erb :'index.html'
   end
 
   get '/results' do
-    Podcast.delete_all
+    # binding.pry
+    # Podcast.delete_all
     @keyword = params[:searchkeyword]
     Api.new(@keyword).load
-    @podcasts = Podcast.all
+    @podcasts = Podcast.joins(:podcasts_topics).where({ "podcasts_topics.topic_id" => Topic.find_by(name: @keyword.capitalize)})
     erb :'/search/results.html'
   end
 
-  get '/topics/:topic' do
-    # binding.pry
-    @topic = Topic.find_by(name: params[:topic])
-    erb :'search/topic.html'
-  end
+  # get '/topics/:topic' do
+  #   @topic = Topic.find_by(name: params[:topic])
+  #   erb :'topic.html'
+  # end
 
 end

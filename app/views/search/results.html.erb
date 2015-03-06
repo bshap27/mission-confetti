@@ -2,7 +2,7 @@
 
 <% @podcasts.each do |podcast| %>
 	<ul>
-		<li><a href="<%= podcast.feed_url %>"><%= podcast.title %></a></li>
+		<li><a href="/podcasts/<%= podcast.id %>"><%= podcast.title %></a></li>
 		<img width='150' src="<%= podcast.image_url %>">
 	</ul>
 <% end %>

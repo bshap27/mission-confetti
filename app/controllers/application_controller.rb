@@ -32,4 +32,16 @@ class ApplicationController < Sinatra::Base
   #   erb :'topic.html'
   # end
 
+  get '/podcasts/:id' do
+    @podcast = Podcast.find(params[:id])
+    erb :'/search/podcasts.html'
+  end
+
+  get '/podcasts/:id/:episode_id' do
+    @podcast = Podcast.find(params[:id])
+    @episode = Episode.find(params[:episode_id])
+    # binding.pry
+    erb :'/search/episodes.html'
+  end
+
 end

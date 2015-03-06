@@ -1,0 +1,7 @@
+<h1><a href="<%= @podcast.feed_url %>"><%= @podcast.title %></a></h1>
+<img width='150' src="<%= @podcast.image_url %>">
+<p><% @podcast.summary %></p>
+
+<% @podcast.episodes.each do |episode| %>
+	<li><a href="/podcasts/<%= episode.podcast_id %>/<%= episode.id %>"><%= episode.title %></a></li>
+<% end %>

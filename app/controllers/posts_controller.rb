@@ -1,5 +1,14 @@
 class PostsController < ApplicationController
 
+  post '/posts' do # CREATE
+    # binding.pry
+    @post = Post.create(params[:post])
+    @post.user_id = current_user.id
+    # binding.pry
+    redirect "/podcasts/#{@podcast.id}/#{episode_id}"
+    # binding.pry
+  end  
+
   get '/posts' do # INDEX
     @posts = Post.all
     # binding.pry
@@ -25,11 +34,11 @@ class PostsController < ApplicationController
   end
 
 
-  post '/posts' do # CREATE
-    @post = Post.create(params[:post])
-    # binding.pry
-    redirect "/posts/#{@post.id}"
-  end  
+  # post '/posts' do # CREATE
+  #   @post = Post.create(params[:post])
+  #   # binding.pry
+  #   redirect "/posts/#{@post.id}"
+  # end  
 
   patch "/posts/:id" do # UPDATE
     @post = Post.find(params[:id])
@@ -43,3 +52,4 @@ end
 # 2. show a blog posts
 # 3. present the user with a form to write a blog posts
 # 4. accept that forms data and create a blog post
+

@@ -11,13 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150305212107) do
+ActiveRecord::Schema.define(version: 20150306194256) do
+
+  create_table "episodes", force: :cascade do |t|
+    t.string  "title"
+    t.string  "url"
+    t.integer "podcast_id"
+  end
 
   create_table "podcasts", force: :cascade do |t|
     t.string  "title"
     t.integer "identifier"
     t.string  "image_url"
     t.string  "feed_url"
+    t.string  "summary"
   end
 
   create_table "podcasts_topics", force: :cascade do |t|
@@ -26,10 +33,13 @@ ActiveRecord::Schema.define(version: 20150305212107) do
   end
 
   create_table "posts", force: :cascade do |t|
-    t.string  "title"
-    t.string  "content"
-    t.integer "user_id"
-    t.integer "podcast_id"
+    t.string   "title"
+    t.string   "content"
+    t.integer  "user_id"
+    t.integer  "podcast_id"
+    t.integer  "episode_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "subtopics", force: :cascade do |t|
@@ -49,11 +59,13 @@ ActiveRecord::Schema.define(version: 20150305212107) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "first_name"
-    t.string "last_name"
-    t.string "email_address"
-    t.string "username"
-    t.string "password"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "email_address"
+    t.string   "username"
+    t.string   "password"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

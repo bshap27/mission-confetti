@@ -1,5 +1,5 @@
 class Podcast < ActiveRecord::Base
-
+  has_many :episodes
 	has_many :user_podcasts
 	has_many :users, through: :user_podcasts
 	has_many :posts

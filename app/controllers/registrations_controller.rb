@@ -23,6 +23,12 @@ class RegistrationsController < ApplicationController
 		erb :"registrations/new_user_show.html"
 	end
 
+  get '/user_account' do
+
+    @user = current_user
+    erb :"registrations/user_account.html"
+  end
+
 	get '/newuser' do
 		# throw Unauthorized unless user_registered?
 		erb :"registrations/new_user.html"

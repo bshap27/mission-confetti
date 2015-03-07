@@ -1,7 +1,30 @@
+<a href="/">Home</a>
+
 <h1><a href="<%= @podcast.feed_url %>"><%= @podcast.title %></a></h1>
 <img width='150' src="<%= @podcast.image_url %>">
 <p><% @podcast.summary %></p>
 
 <% @podcast.episodes.each do |episode| %>
 	<li><a href="/podcasts/<%= episode.podcast_id %>/<%= episode.id %>"><%= episode.title %></a></li>
+<% end %>
+
+<p>Add Your Voice:</p>
+
+<form action='/posts' method='post'>
+	<p><label for='title'>Title</label>
+	<input name="post[title]" type='text' id='title'/></p>
+	<p><label for='comment'>Comment</label>
+	<textarea name="post[content]" id='comment'></textarea></p>
+	<input type='hidden' name='post[user_id]' value="<%= current_user.id %>"/>
+	<input type='hidden' name='post[podcast_id]' value="<%= @podcast.id %>"/>
+	<input type="submit"/>
+</form>
+
+<p>Comments:</p>
+
+<% @podcast.posts.each do |post| %>
+	<p>Date: <%= post.created_at %></p>
+	<p>Title: <%= post.title %></p>
+  <p>Content: <%= post.content %></p>
+  <p>Author: <%= post.user.name %></p>
 <% end %>

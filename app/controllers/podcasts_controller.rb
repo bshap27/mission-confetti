@@ -27,6 +27,7 @@ class PodcastsController < ApplicationController
   # end
 
   get '/podcasts/:id' do
+    # binding.pry
     @podcast = Podcast.find(params[:id])
     erb :'/search/podcasts.html'
   end

@@ -22,7 +22,6 @@ class RegistrationsController < ApplicationController
 		@user = User.create(params[:user])
     session[:user_id] = @user.id
     flash[:newuser] = "Thank you for registering for this site! We're thrilled to have you!"
-		# erb :"registrations/new_user_show.html"
     redirect '/'
 	end
 

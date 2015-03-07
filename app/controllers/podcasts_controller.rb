@@ -3,7 +3,7 @@ class PodcastsController < ApplicationController
   get '/' do
     @newuser = true if flash[:newuser]
     @topics = Topic.all
-    @categories_array = ["Arts", "Business", "Comedy", "Education", "Games & Hobbies", "Government & Organizations", "Health", "Kids & Family", "Music", "News & Politics", "Religion & Spirituality", "Science & Medicine", "Society & Culture", "Sports & Recreation", "TV & Film", "Technology"]
+    @categories_array = ["Arts", "Business", "Comedy", "Education", "Hobbies", "Government", "Health", "Kids", "Music", "News", "Politics", "Religion", "Science", "Medicine", "Culture", "Sports", "TV", "Film", "Technology"]
     erb :'index.html'
   end
 

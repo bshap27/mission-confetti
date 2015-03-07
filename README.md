@@ -39,3 +39,6 @@ TODAY 3/5/2015
 - let's map out the framework for our site (RS- I brought the papers from our brainstorm at my apartment and we can build upon them).
 - let's decide whether the iTunes podcast directory has information that the API doesn't have and whether we still need to rely on it. (I think the API doesn't have episode information.)
 - move methods that apply to all controllers to a 'concerns' folder? (see rails file structure readme http://learn.flatironschool.com/learn/ruby-007/web-development-ruby-007/rails/introduction/rails-file-structure)
+
+
+SESSION ID WAS PERSISTING FROM PAST BEFORE I CLEARED THE DATABASE.

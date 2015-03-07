@@ -39,8 +39,8 @@
             <p><%= flash[:newuser] %></p>
             <p class='test'>Hello, <%= current_user.username %>!
           <% end %>
-            <p><a href="/user_account">Your Account</a><p>
-            <input type="submit" value="Log Out"></input></p>
+            <a href="/user_account">Your Account</a>
+            <input type="submit" class="delete-button" value="Log Out"></input></p>
           </form>
       </ul>
 
@@ -53,8 +53,10 @@
   </nav>
 
 <blockquote class="pull-right">
-  <p>Some really cool quote here.</p>
-  <small>Someone <cite title="Source Title">Source Title</cite></small>
+  <p>Let’s start with a simple fact:<br>
+  More people have downloaded Serial <br> 
+  than have watched Girls, Mad Men, or Louie.</p>
+  <small><cite title="Source Title"><a href="http://www.fastcompany.com/3041522/pod-power" target="_blank">Fast Company</a></cite></small>
 </blockquote>
 
 <div class="jumbotron">

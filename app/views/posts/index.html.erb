@@ -1,7 +1,0 @@
-<h1>Podcast Blog</h1>
-
-<ol>
-  <% @posts.each do |post| %>
-    <li><a href="/posts/<%= post.id %>"><%= post.title if post.title %></a> by <%= post.user.name if post.user %></li>
-  <% end %>
-</ol>

@@ -20,7 +20,6 @@ class Api
     self.get_json
     @search_hash["podcasts"].each do |podcast|
       p = Podcast.find_or_create_by(title: podcast["title"], identifier: podcast["podcast_id"], image_url: podcast["image_url"], feed_url: podcast["feed_url"])
-      # binding.pry
       episode_hash = JSON.load(open("https://feedwrangler.net/api/v2/podcasts/show?podcast_id=#{p.identifier}"))
       p.summary = episode_hash["podcast"]["summary"]
       p.save

@@ -29,9 +29,9 @@ Functionality to add:
 SESSION ID WAS PERSISTING FROM PAST BEFORE I CLEARED THE DATABASE.
 
 FUTURE FUNCTIONAL ADDITIONS:
-- remove error message on index page
+
 - be able to delete/edit posts
-- add post capability to podcast page
+
 - add home link on every page (or nav bar???)
 - add your favorite podcasts to your homepage
 - rate podcasts

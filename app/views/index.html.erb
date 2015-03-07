@@ -28,10 +28,7 @@
               <input type="submit"></input>
           </form>
           <p><a href="/newuser">New User?</a></p>
-
-          <% if !@valid_user %>
-            <p>Invalid username. Please try again or create a new account.</p>
-          <% end %>
+          <p><%= flash[:invaliduser] %></p>
       </ul>
 
     <% else %>

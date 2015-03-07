@@ -2,11 +2,12 @@ class RegistrationsController < ApplicationController
 
   post "/login" do
     begin
-      @valid_user = true
+      # @valid_user = true
       @user = User.find_by(:username => params[:username])
       session[:user_id] = @user.id
     rescue
-      @valid_user = false
+      # @valid_user = false
+      flash[:invaliduser] = "Invalid username. Please try again or create a new account."
     end
     redirect '/'
   end

@@ -4,7 +4,7 @@ class PodcastsController < ApplicationController
     @newuser = true if flash[:newuser]
     @topics = Topic.all
     @categories_array = ["Arts", "Business", "Comedy", "Education", "Hobbies", "Government", "Health", "Kids", "Music", "News", "Politics", "Religion", "Science", "Medicine", "Culture", "Sports", "TV", "Film", "Technology"]
-    binding.pry
+    # binding.pry
     erb :'index.html'
   end
 

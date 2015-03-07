@@ -5,7 +5,7 @@ class ApplicationController < Sinatra::Base
   set :views, Proc.new { File.join(root, "../views/") }
 
   def user_logged_in?
-    session[:user_id] != ""
+    session[:user_id] != "" && session[:user_id]
   end
 
   def current_user

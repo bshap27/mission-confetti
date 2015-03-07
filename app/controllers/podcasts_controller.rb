@@ -1,6 +1,7 @@
 class PodcastsController < ApplicationController
 
   get '/' do
+    @newuser = true if flash[:newuser]
     @topics = Topic.all
     @categories_array = ["Arts", "Business", "Comedy", "Education", "Games & Hobbies", "Government & Organizations", "Health", "Kids & Family", "Music", "News & Politics", "Religion & Spirituality", "Science & Medicine", "Society & Culture", "Sports & Recreation", "TV & Film", "Technology"]
     erb :'index.html'
@@ -10,8 +11,12 @@ class PodcastsController < ApplicationController
     # binding.pry
     # Podcast.delete_all
     @keyword = params[:searchkeyword]
-    Api.new(@keyword).load
-    @podcasts = Podcast.joins(:podcasts_topics).where({ "podcasts_topics.topic_id" => Topic.find_by(name: @keyword.capitalize)})
+    if Topic.find_by(name: @keyword.capitalize)
+      @podcasts = Podcast.joins(:podcasts_topics).where({ "podcasts_topics.topic_id" => Topic.find_by(name: @keyword.capitalize)})
+    else
+      Api.new(@keyword).load
+      @podcasts = Podcast.joins(:podcasts_topics).where({ "podcasts_topics.topic_id" => Topic.find_by(name: @keyword.capitalize)})
+    end
     erb :'/search/results.html'
   end
 

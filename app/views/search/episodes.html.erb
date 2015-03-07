@@ -24,5 +24,9 @@
   <p>Content: <%= post.content %></p>
   <p>Author: <%= post.user.name %></p>
   <a href="/posts/<%= post.id %>/edit">Edit</a>
-  <a href="/posts/<%= post.id %>/delete">Delete</a>
+
+	<form action='/posts/<%= post.id %>/delete' method='post'>
+		<input type="submit" value="Delete"/>
+	</form>
+
 <% end %>

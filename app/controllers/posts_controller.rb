@@ -1,5 +1,16 @@
 class PostsController < ApplicationController
 
+  def locate_redirect(post)
+    if post.podcast_id
+      redirect "/podcasts/#{post.podcast_id}"
+    elsif post.episode_id
+      episode_id = post.episode_id
+      episode = Episode.find(episode_id)
+      podcast = episode.podcast
+      redirect "/podcasts/#{podcast.id}/#{episode_id}" 
+    end
+  end
+
   post '/posts' do # CREATE
     @post = Post.create(params[:post])
     @episode = Episode.find(params[:post][:episode_id])
@@ -12,7 +23,7 @@ class PostsController < ApplicationController
     erb :"search/edit_posts.html"
   end
 
-  post '/posts/:id/destroy' do
+  post '/posts/:id/delete' do
    @post = Post.find(params[:id])
    @post.destroy
     locate_redirect(@post)
@@ -23,18 +34,6 @@ class PostsController < ApplicationController
     @post.update(params[:post])
       locate_redirect(@post)
   end
-
-  def locate_redirect(post)
-    if post.podcast_id
-      redirect "/podcasts/#{post.podcast_id}"
-    elsif post.episode_id
-      episode_id = post.episode_id
-      episode = Episode.find(episode_id)
-      podcast = episode.podcast
-      redirect "/podcasts/#{podcast.id}/#{episode_id}" 
-    end
-  end
-
 
 end  
 

@@ -14,3 +14,14 @@ text-decoration: none;
 .navbar-form .custom-form {
 	width: 300px;
 }
+
+.delete-button {
+	color: blue;
+	text-decoration: none;
+	border: none;
+	background: transparent;
+}
+
+.delete-button:hover {
+	text-decoration: underline;
+}

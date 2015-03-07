@@ -13,6 +13,7 @@ gem 'shotgun'
 gem 'pry'
 gem 'prybaby'
 gem 'nokogiri'
+gem 'sinatra-flash'
 gem 'database_cleaner', git: 'https://github.com/bmabey/database_cleaner.git'
 
 # group :test do

@@ -1,12 +1,10 @@
 class PostsController < ApplicationController
 
   post '/posts' do # CREATE
-    # binding.pry
+    binding.pry
     @post = Post.create(params[:post])
-    @post.user_id = current_user.id
-    # binding.pry
-    redirect "/podcasts/#{@podcast.id}/#{episode_id}"
-    # binding.pry
+    @episode = Episode.find(params[:post][:episode_id])
+    redirect "/podcasts/#{@episode.podcast_id}/#{@episode.id}"
   end  
 
   get '/posts' do # INDEX

@@ -39,8 +39,10 @@
       <ul class="nav navbar-nav navbar-right">
           <form action='/logout' method="post">
           <% if current_user %>
+            <p><%= flash[:newuser] %></p>
             <p class='test'>Hello, <%= current_user.username %>!
           <% end %>
+            <p><a href="/user_account">Your Account</a><p>
             <input type="submit" value="Log Out"></input></p>
           </form>
       </ul>

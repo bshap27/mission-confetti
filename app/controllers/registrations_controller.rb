@@ -20,7 +20,10 @@ class RegistrationsController < ApplicationController
   # slash let somebody link to the new user page without having to try a username.
 	post '/newuser' do
 		@user = User.create(params[:user])
-		erb :"registrations/new_user_show.html"
+    session[:user_id] = @user.id
+    flash[:newuser] = "Thank you for registering for this site! We're thrilled to have you!"
+		# erb :"registrations/new_user_show.html"
+    redirect '/'
 	end
 
   get '/user_account' do

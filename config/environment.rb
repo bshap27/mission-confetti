@@ -1,5 +1,6 @@
 ENV['SINATRA_ENV'] ||= "development"
 
+require 'sinatra/flash'
 require 'bundler/setup'
 Bundler.require
 

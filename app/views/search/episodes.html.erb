@@ -8,7 +8,9 @@
 	<p><label for='title'>Title</label>
 	<input name="post[title]" type='text' id='title'/></p>
 	<p><label for='comment'>Comment</label>
-	<textarea name="post[comment]" id='comment'></textarea></p>
+	<textarea name="post[content]" id='comment'></textarea></p>
+	<input type='hidden' name='post[user_id]' value="<%= current_user.id %>"/>
+	<input type='hidden' name='post[episode_id]' value="<%= @episode.id %>"/>
 	<input type="submit"/>
 </form>
 

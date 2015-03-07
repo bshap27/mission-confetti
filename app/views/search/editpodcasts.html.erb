@@ -1,0 +1,8 @@
+<form action='/posts/<%= @post.id %>' method='post'>
+	<input type=“hidden” name=“_method” value=“PATCH”>
+		<p><label for='title'>Title</label>
+		<input name="post[title]" type='text' id='title'value="<%= @post.title %>"/></p>
+		<p><label for='comment'>Comment</label>
+		<textarea name="post[content]" id='comment' value="<%= @post.content %>"></textarea></p>
+		<input type="submit"/>
+</form>

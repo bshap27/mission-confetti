@@ -3,7 +3,7 @@
 <p>Hi, <%= @user.first_name %></p>
 
 
-<h3>Blog Posts</h3>
+<h3>My Comments</h3>
 <% @user.posts.each do |post| %> 
 <li><a href="<%= post.title %>"><%= post.title %></a></li>
 <% end %>

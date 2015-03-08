@@ -34,3 +34,5 @@ FUTURE FUNCTIONAL ADDITIONS:
 - rate podcasts
 - twitter feeds on each podcast
 - follow on twitter for each podcast
+
+Fix 'your account' link on index page post login - NoMethodError at /user_account

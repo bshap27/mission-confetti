@@ -5,7 +5,12 @@
 
 <h3>My Comments</h3>
 <% @user.posts.each do |post| %> 
-<li><a href="<%= post.title %>"><%= post.title %></a></li>
+	<% if post.podcast_id %>
+			<li><a href="/podcasts/<%= post.podcast_id %>"><%= post.title %></a> - <%= post.podcast.title %></li>	
+	<% elsif post.episode_id %>
+	  <% episode_id = post.episode_id %>
+	  <% episode = Episode.find(episode_id) %>
+	  <% podcast = episode.podcast %>
+	  <li><a href="/podcasts/<%= podcast.id %>/<%= episode_id %>"><%= post.title %></a> - <%= podcast.title %>: <%= post.episode.title %></li>	
+	<% end %>
 <% end %>
-
-
